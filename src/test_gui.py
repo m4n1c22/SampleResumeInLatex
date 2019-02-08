@@ -2,6 +2,13 @@ from Tkinter import *
 import ScrolledText as scrolledtext
 import subprocess
 import os
+
+from resume_education_model import Resume_Education as education
+from resume_work_experience_model import Resume_Work_Experience as work_experience
+
+education_obj =  education()
+work_experience_obj = work_experience()
+
 window = Tk()
 
 Personal_Details_Layer = Frame(window, width=100, height=50)
@@ -37,7 +44,34 @@ Country = Label(Personal_Details_Layer, text="Country")
 Country_box = Entry(Personal_Details_Layer, width = 20)
 
 Education_Title = Label(Education_Layer, text="Education Details")
-Education_box = scrolledtext.ScrolledText(Education_Layer,width=100,height=20)
+#Education_box = scrolledtext.ScrolledText(Education_Layer,width=100,height=20)
+Grad_Month = Label(Education_Layer, text="Graduation Month")
+Grad_Month_box = Entry(Education_Layer, width = 20)
+
+Grad_Year = Label(Education_Layer, text="Graduation Year")
+Grad_Year_box = Entry(Education_Layer, width = 5)
+
+Degree = Label(Education_Layer, text="Degree")
+Degree_box = Entry(Education_Layer, width = 5)
+
+Subject = Label(Education_Layer, text="Subject")
+Subject_box = Entry(Education_Layer, width = 20)
+
+University = Label(Education_Layer, text="University")
+University_box = Entry(Education_Layer, width = 50)
+
+Location = Label(Education_Layer, text="Location")
+Location_box = Entry(Education_Layer, width = 40)
+
+thesis = Label(Education_Layer, text="Thesis")
+thesis_box = Entry(Education_Layer, width = 50)
+
+advisor = Label(Education_Layer, text="Advisor")
+advisor_box = Entry(Education_Layer, width = 40)
+
+
+
+
 
 def create_latex_document():
     f = open("res/gen_latex.tex","w")
@@ -48,7 +82,15 @@ def create_latex_document():
     f.write("\\par{\t\\centering\n")
     f.write("\t{\n\t\t \\Huge "+ str(First_Name_box.get())+ " " +"\\textsc{"+str(Last_Name_box.get()) +"}\n")
     f.write("\t}\\bigskip\n\\par}\n")
+
+    f.write("\\section{Education}\n")
+    f.write("\\begin{tabular}{rl}\n")
+    f.write(education_obj.generateEducationEntry())
+    f.write("\\end{tabular}\n")
     f.write("\\end{document}\n")
+
+def compose_education_section():
+    education_obj.addEducationInfo(str(Grad_Month_box.get()),str(Grad_Year_box.get()),str(Degree_box.get()),str(Subject_box.get()),str(University_box.get()),str(Location_box.get()),str(thesis_box.get()),str(advisor_box.get()))
 
 
 def run_xelatex_for_document(filename):
@@ -56,6 +98,7 @@ def run_xelatex_for_document(filename):
 
 
 def generate_pdf_document():
+    compose_education_section()
     create_latex_document()
     run_xelatex_for_document("gen_latex.tex")
 
@@ -100,7 +143,39 @@ def load_gui():
 
     Education_Title.grid(column=0, row=0)
     Education_Title.configure(background="white")
-    Education_box.grid(column=0, row=1)
+    #Education_box.grid(column=0, row=1)
+    Grad_Month.grid(column=0, row=1)
+    Grad_Month.configure(background="white")
+    Grad_Month_box.grid(column=1, row=1)
+
+    Grad_Year.grid(column=0, row=2)
+    Grad_Year.configure(background="white")
+    Grad_Year_box.grid(column=1, row=2)
+
+    Degree.grid(column=0, row=3)
+    Degree.configure(background="white")
+    Degree_box.grid(column=1, row=3)
+
+    Subject.grid(column=0, row=4)
+    Subject.configure(background="white")
+    Subject_box.grid(column=1, row=4)
+
+    University.grid(column=0, row=5)
+    University.configure(background="white")
+    University_box.grid(column=1, row=5)
+
+    Location.grid(column=0, row=6)
+    Location.configure(background="white")
+    Location_box.grid(column=1, row=6)
+
+    thesis.grid(column=0, row=7)
+    thesis.configure(background="white")
+    thesis_box.grid(column=1, row=7)
+
+    advisor.grid(column=0, row=8)
+    advisor.configure(background="white")
+    advisor_box.grid(column=1, row=8)
+
     btn.grid(column=0, row=0)
 
     window.mainloop()
