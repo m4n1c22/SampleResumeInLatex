@@ -1,0 +1,104 @@
+\input{header}
+%--------------------BEGIN DOCUMENT----------------------
+\begin{document}
+
+%WATERMARK TEST [**not part of a CV**]---------------
+%\font\wm=''Baskerville:color=787878'' at 8pt
+%\font\wmweb=''Baskerville:color=FF1493'' at 8pt
+%{\wm 
+%	\begin{textblock}{1}(0,0)
+%		\rotatebox{-90}{\parbox{500mm}{
+%			Typeset by Alessandro Plasmati with \XeTeX\  \today\ for 
+%			{\wmweb \href{http://www.aleplasmati.comuv.com}{aleplasmati.comuv.com}}
+%		}
+%	}
+%	\end{textblock}
+%}
+
+\pagestyle{empty} % non-numbered pages
+
+\font\fb=''[cmr10]'' %for use with \LaTeX command
+
+%--------------------TITLE-------------
+\par{\centering
+		{\Huge Jason \textsc{Bourne}
+	}\bigskip\par}
+
+%--------------------SECTIONS-----------------------------------
+%Section: Personal Data
+\section{Personal Data}
+
+\begin{tabular}{rl}
+    \textsc{Address:}   & Streetname street number, Postal code, city, country \\
+    \textsc{Phone:}     & Telephone number with country code\\
+    \textsc{email:}     & \href{mailto:email address}{email address}\\
+    \textsc{Skype ID:}     & Your skype id\\
+\end{tabular}
+
+%Section: Work Experience at the top
+\section{Work Experience}
+\begin{tabular}{r|p{11cm}}
+ \textsc{From Date-To Date} & Position at \textsc{Organization Name}, Location \\&\emph{Name of the team}\\&\footnotesize{What did you do?}\\\multicolumn{2}{c}{} \\
+ 
+\end{tabular}
+
+%Section: Education
+\section{Education}
+\begin{tabular}{rl}	
+ \textsc{Graduation month} Graduation Year & Degree name in \textsc{Subject specialized in},\\& \textbf{University name}, Location\\
+& Thesis: Name of your thesis \\& Advisor: {Name of your supervisor}
+\end{tabular}
+
+
+%\section{Publications}
+%\begin{tabular}[h]{rl}	
+% \textsc{September} 2015 & \textbf{Use your Senses: A Smooth Multipath TCP WiFi/Mobile Handover}\\& \textsc{MobiCom} 2015 \\&ACM Proceedings of the 21st Annual International Conference \\&on Mobile Computing and Networking\\& \textbf{Coauthors}:\\&Alexander Fr\"ommgen, Sabrina M\"uller, \\&Prof. Anja Klein, Prof. Alejandro Buchmann\\&DOI : \href{10.1145/2789168.2795171}{10.1145/2789168.2795171}
+%\end{tabular}
+%
+
+\section{Honor \& Awards}
+
+\begin{itemize}
+
+\item What was your honor or award. Describe them as items shown in the latex source.
+\end{itemize}
+
+\section{Skills \& Interests}
+\begin{tabular}{rl}
+ Programming Languages:& \textsc{Programming languages you specialize in}
+\setmainfont[SmallCapsFont=Fontin-SmallCaps.otf]{Fontin.otf}\\
+Operating Systems:& \textsc{Operating system you specialize in}\\
+Subjects of Interest:& \textsc{State your subjects of interest here}
+\end{tabular}
+
+
+\section{Projects}
+\begin{tabular}[h]{r|p{11cm}}
+ \textsc{Start Date- End Date} & Project Name \\&
+\emph{Collaborated with Whom?} 
+ \\&\footnotesize{Content here.}\\\multicolumn{2}{c}{} \\
+ 
+\end{tabular}
+
+\section{Hobbies}
+
+List your hobbies here.
+
+
+\newpage
+\section{References}
+
+\begin{itemize}
+
+\item \textsc{First reference name} \\
+Position \\
+Where does he/she work?\\
+Email: \href{mailto:emailid}{emailid}\\
+Homepage: \href{weblink}{}
+
+
+\end{itemize}
+
+
+
+\end{document}
